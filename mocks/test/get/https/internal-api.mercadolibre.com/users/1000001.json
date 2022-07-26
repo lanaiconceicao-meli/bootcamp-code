@@ -1,0 +1,120 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "data": {
+    "id": 1000001,
+    "nickname": "TESTJAWJDK62",
+    "registration_date": "2017-03-28T14:05:04.000-04:00",
+    "country_id": "AR",
+    "internal_tags": [],
+    "user_type": "normal",
+    "tags": [
+      "normal",
+      "test_user",
+      "user_info_verified"
+    ],
+    "points": 100,
+    "site_id": "MLA",
+    "permalink": "http://perfil.mercadolibre.com.ar/TESTJAWJDK62",
+    "seller_experience": "NEWBIE",
+    "bill_data": {
+      "accept_credit_note": null
+    },
+    "seller_reputation": {
+      "level_id": null,
+      "power_seller_status": null,
+      "transactions": {
+        "canceled": 0,
+        "completed": 0,
+        "period": "historic",
+        "ratings": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 0
+        },
+        "total": 0
+      },
+      "metrics": {
+        "sales": {
+          "period": "60 months",
+          "completed": 0
+        },
+        "claims": {
+          "period": "60 months",
+          "rate": 0,
+          "value": 0
+        },
+        "delayed_handling_time": {
+          "period": "60 months",
+          "rate": 0,
+          "value": 0
+        },
+        "cancellations": {
+          "period": "60 months",
+          "rate": 0,
+          "value": 0
+        }
+      }
+    },
+    "status": {
+      "billing": {
+        "allow": false,
+        "codes": [
+          "address_pending",
+          "identification_pending",
+          "identification_empty_or_invalid_doc_type"
+        ]
+      },
+      "buy": {
+        "allow": true,
+        "codes": [],
+        "immediate_payment": {
+          "reasons": [],
+          "required": false
+        }
+      },
+      "confirmed_email": false,
+      "shopping_cart": {
+        "buy": "allowed",
+        "sell": "allowed"
+      },
+      "immediate_payment": false,
+      "list": {
+        "allow": false,
+        "codes": [
+          "address_pending",
+          "identification_pending",
+          "identification_empty_or_invalid_doc_type"
+        ],
+        "immediate_payment": {
+          "reasons": [],
+          "required": false
+        }
+      },
+      "mercadoenvios": "not_accepted",
+      "mercadopago_account_type": null,
+      "mercadopago_tc_accepted": true,
+      "required_action": "",
+      "sell": {
+        "allow": true,
+        "codes": [],
+        "immediate_payment": {
+          "reasons": [],
+          "required": false
+        }
+      },
+      "site_status": "active",
+      "user_type": "eventual"
+    },
+    "secure_email": "test_user_kyc@testuser.com",
+    "company": {
+      "cust_type_id": "CO",
+      "soft_descriptor": null
+    },
+    "credit": {
+      "consumed": 0,
+      "rank": "newbie"
+    },
+    "context": {}
+  }
+}

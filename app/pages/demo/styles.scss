@@ -1,0 +1,26 @@
+$demo-font-size: 1rem;
+$demo-color-gray: #666;
+$demo-color-lightgray: #d3d3d3;
+
+.demo {
+  font-size: $demo-font-size;
+  color: $demo-color-gray;
+  padding: 5em;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.demo-images {
+  width: 100%;
+  display: inline-flex;
+}
+
+.demo-images__img {
+  width: 100%;
+}
+
+.demo-button {
+  display: inline-block;
+  margin-left: 1em;
+  background-color: $demo-color-lightgray;
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "bragi",
+  "rules": {
+    "import/no-extraneous-dependencies": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/*.spec.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "data": {
+    "user_id": 1000001,
+    "operator_id": null,
+    "creation_date": "2019-10-17T10:06:37.893-04:00",
+    "expire_date": "2022-10-16T10:06:37.890-04:00",
+    "site_id": "mla",
+    "scopes": [
+      "read",
+      "write"
+    ],
+    "admin_otp": false,
+    "user_grant": "not-needed",
+    "detached_id": "awesome-detached-id"
+  }
+}

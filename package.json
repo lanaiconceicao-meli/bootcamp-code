@@ -1,0 +1,36 @@
+{
+  "name": "bootcamp-fe-lanai-conceicao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "NODE_ENV=test jest --config jest.config.js --coverage",
+    "test:unit:watch": "NODE_ENV=test jest --watch",
+    "test:e2e": "npm run test:e2e:desktop && npm run test:e2e:mobile",
+    "test:e2e:desktop": "NODE_TEST=e2e wdio wdio.desktop.conf.js",
+    "test:e2e:mobile": "NODE_TEST=e2e wdio wdio.mobile.conf.js",
+    "start": "NODE_ENV=production node ./index.js",
+    "dev": "NODE_ENV=development NODE_HTTPS=true node ./index.js",
+    "start-e2e-server": "NODE_TEST=e2e NODE_ENV=test NODE_HTTPS=true node ./index.js",
+    "debug": "NODE_ENV=development nodemon --inspect --inspect-brk ./index.js",
+    "build": "NODE_ENV=development webpack --config webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --config webpack.config.js",
+    "dist": "NODE_ENV=production webpack --config webpack.config.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint index.js 'api/**/*.js' 'app/**/*.js' 'tests/unit/**/*.spec.js' 'app/**/__tests__/**/*.spec.js' --cache",
+    "lint:css": "sass-lint 'app/**/*.scss' -v -q",
+    "i18n:gettext": "i18n gettext",
+    "i18n:upload": "i18n upload",
+    "i18n:download": "i18n download"
+  },
+  "dependencies": {
+    "nordic": "^7.12.1"
+  },
+  "devDependencies": {
+    "nordic-dev": "^7.12.1",
+    "nordic-e2e-toolkit": "1.0.0-wdio7-cucumber"
+  },
+  "license": "private",
+  "private": true
+}

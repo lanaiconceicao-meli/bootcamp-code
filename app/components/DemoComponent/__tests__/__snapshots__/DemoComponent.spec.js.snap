@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DemoComponent should render correctly 1`] = `
+<DocumentFragment>
+  <h1>
+    This is a Demo component
+  </h1>
+  <p>
+    <span
+      class="demo-counter"
+    >
+      Clicks counter: 0
+    </span>
+    <button
+      class="demo-button demo-button__add"
+    >
+      +
+    </button>
+    <button
+      class="demo-button demo-button__subtract"
+    >
+      -
+    </button>
+  </p>
+</DocumentFragment>
+`;

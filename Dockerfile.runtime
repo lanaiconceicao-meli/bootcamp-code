@@ -1,0 +1,1 @@
+FROM hub.furycloud.io/mercadolibre/nodejs:14-mini-runtime

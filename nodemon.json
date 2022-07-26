@@ -1,0 +1,12 @@
+{
+  "verbose": false,
+  "ignore": [
+    "mocks/**/*.json",
+    "reports/**/*",
+    "coverage/**/*",
+    "*.log"
+  ],
+  "events": {
+    "restart": "echo \"App restarted due to changes in:\n'$FILENAME'\""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "data": {
+    "android": 0,
+    "ios": 0,
+    "web-mobile": 0,
+    "web-tablet": 0,
+    "web-desktop": 0
+  }
+}

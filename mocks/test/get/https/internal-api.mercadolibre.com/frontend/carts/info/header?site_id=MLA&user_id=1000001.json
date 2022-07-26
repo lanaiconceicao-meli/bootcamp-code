@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "date": "Wed, 11 May 2022 12:52:41 GMT",
+    "content-type": "application/json;charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "vary": "accept-encoding",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "d0fd2bd2-f9a1-4201-aa6f-f6456ee67e31",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-06d75adcea642c34a-10.54.28.206",
+    "x-nginx-pool": "info.cart-backend.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": {
+    "badge_icon": {
+      "quantity": 0
+    }
+  }
+} 

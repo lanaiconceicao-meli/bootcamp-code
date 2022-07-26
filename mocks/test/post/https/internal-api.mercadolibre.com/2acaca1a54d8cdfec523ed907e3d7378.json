@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "data": {
+    "data": {
+      "user": {
+        "names": {
+          "preferred": "Test KYC",
+          "brand": "Test Company"
+        },
+        "registration_identifiers": {
+          "email": {
+            "address": "test_user_kyc@testuser.com"
+          }
+        },
+        "entity_type": "unknown"
+      }
+    }
+  }
+}
