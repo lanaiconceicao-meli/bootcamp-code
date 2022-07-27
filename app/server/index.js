@@ -24,6 +24,11 @@ router.use(layoutMiddleware());
 router.use(i18nMiddleware(config.i18n));
 router.use(polyfillsMiddleware(config.polyfillLimits));
 
+// Exercício 1 - Criar um middleware que - cada vez que acessamos uma rota- nos mostre pelo console o path de cada rota.
+router.use((req, _res, next) => {
+  console.log('path:', req.path);
+  next();
+});
 /**
  * Redirect
  */
