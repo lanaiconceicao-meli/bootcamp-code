@@ -10,9 +10,11 @@ const restclient = require('nordic/restclient')({
  */
 class Service {
   static getSite(siteId) {
+    // https://internal-api.mercadolibre.com/sites/MLB
+    // https://internal-api.mercadolibre.com/sites/MLB/search?q=cafe
     return restclient.get(`/sites/${siteId}`)
       .then(response => response.data);
-  };
+  }
 }
 
 /**

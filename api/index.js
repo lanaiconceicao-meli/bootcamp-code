@@ -5,7 +5,7 @@ const router = require('nordic/ragnar').router();
 
 const demo = require('./demo');
 const message = require('./message');
-const products = require('./products');
+// const products = require('./products');
 const currencies = require('./currencies');
 
 /**
@@ -13,7 +13,7 @@ const currencies = require('./currencies');
  */
 router.use('/demo', demo);
 router.use('/message', message);
-router.use('/products', products);
+// router.use('/products', products);
 router.use('/currencies', currencies);
 
 /**
