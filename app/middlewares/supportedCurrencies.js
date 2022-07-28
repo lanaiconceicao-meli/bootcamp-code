@@ -3,4 +3,6 @@ const supportedCurrencies = (req, res, next) => {
   next();
 };
 
+// https://dev.mercadolivre.com.br:8443/api/currencies
+
 module.exports = supportedCurrencies;

@@ -72,7 +72,10 @@ const getProductStock = (req, res) => {
 
 router.get('/', getProducts);
 router.get('/name', getProductName);
+// https://dev.mercadolivre.com.br:8443/api/products/name?name=Mouse
 router.get('/price', getProductPrice);
+// https://dev.mercadolivre.com.br:8443/api/products/price?price=4000
 router.get('/stock', getProductStock);
+// https://dev.mercadolivre.com.br:8443/api/products/stock?stock=40
 
 module.exports = router;
