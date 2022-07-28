@@ -2,6 +2,7 @@
  * Module dependencies
  */
 const router = require('nordic/ragnar').router();
+
 const demo = require('./demo');
 const message = require('./message');
 const products = require('./products');
