@@ -11,26 +11,27 @@
 //     ● quantity
 
 const router = require('nordic/ragnar').router();
+const ProductService = require('../services/ProductService');
 
-const products = [
-  {
-    name: 'Mouse',
-    price: 4598,
-    stock: 30,
-  },
-  {
-    name: 'Notebook',
-    price: 2598,
-    stock: 30,
-  },
-  {
-    name: 'Macbook',
-    price: 9898,
-    stock: 0,
-  },
-];
+// const products = [
+//   {
+//     name: 'Mouse',
+//     price: 4598,
+//     stock: 30,
+//   },
+//   {
+//     name: 'Notebook',
+//     price: 2598,
+//     stock: 30,
+//   },
+//   {
+//     name: 'Macbook',
+//     price: 9898,
+//     stock: 0,
+//   },
+// ];
 
-const getProducts = (req, res) => res.status(200).json(products);
+// const getProducts = (req, res) => res.status(200).json(products);
 
 // =================================== HTTP Requests ===================================
 // // Exercício integrador
@@ -53,29 +54,42 @@ const getProducts = (req, res) => res.status(200).json(products);
 
 // IMPORTANTE: Testar tudo no Postman.
 
-const getProductName = (req, res) => {
-  const getQuery = req.query.name;
-  const filteredName = products.filter((item) => item.name.toLowerCase() === getQuery.toLowerCase());
-  return res.status(200).json(filteredName);
-};
+// const getProductName = (req, res) => {
+//   const getQuery = req.query.name;
+//   const filteredName = products.filter((item) => item.name.toLowerCase() === getQuery.toLowerCase());
+//   return res.status(200).json(filteredName);
+// };
 
-const getProductPrice = (req, res) => {
-  const getQuery = req.query.price;
-  const filteredPrice = products.filter((item) => item.price <= getQuery);
-  return res.status(200).json(filteredPrice);
-};
+// const getProductPrice = (req, res) => {
+//   const getQuery = req.query.price;
+//   const filteredPrice = products.filter((item) => item.price <= getQuery);
+//   return res.status(200).json(filteredPrice);
+// };
 
-const getProductStock = (req, res) => {
-  const filteredStock = products.filter((item) => item.stock > 0);
-  return res.status(200).json(filteredStock);
-};
+// const getProductStock = (req, res) => {
+//   const filteredStock = products.filter((item) => item.stock > 0);
+//   return res.status(200).json(filteredStock);
+// };
 
-router.get('/', getProducts);
-router.get('/name', getProductName);
-// https://dev.mercadolivre.com.br:8443/api/products/name?name=Mouse
-router.get('/price', getProductPrice);
-// https://dev.mercadolivre.com.br:8443/api/products/price?price=4000
-router.get('/stock', getProductStock);
-// https://dev.mercadolivre.com.br:8443/api/products/stock?stock=40
+// router.get('/', getProducts);
+// router.get('/name', getProductName);
+// // https://dev.mercadolivre.com.br:8443/api/products/name?name=Mouse
+// router.get('/price', getProductPrice);
+// // https://dev.mercadolivre.com.br:8443/api/products/price?price=4000
+// router.get('/stock', getProductStock);
+// // https://dev.mercadolivre.com.br:8443/api/products/stock?stock=40
+
+// ========================================================================
+
+// aula 29/07/2022
+
+router.get('/product', async (req, res, next) => {
+  try {
+    const data = await ProductService.getProducts(req.platform.siteId, req.query.q, req.query.limit);
+    res.status(200).json(data);
+  } catch {
+    next();
+  }
+});
 
 module.exports = router;

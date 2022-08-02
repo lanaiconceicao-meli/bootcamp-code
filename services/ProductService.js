@@ -5,7 +5,7 @@ const restclient = require('nordic/restclient')({
 class ProductService {
   static getProducts(siteId, product, limit) {
     return restclient.get(`/sites/${siteId}/search?q=${product}&limit=${limit}`)
-      .then(response => response.data);
+      .then(response => response.data.results);
   }
 }
 
