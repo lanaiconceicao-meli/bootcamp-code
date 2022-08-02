@@ -22,9 +22,23 @@ function ProductView(props) {
   };
   const [prod, setProd] = useState(products);
 
-  const fetchNewProduct = () => {
-    restclient.get('/products')
-      .then(data => setProd(data));
+  // const fetchNewProduct = () => {
+  //   restclient.get('/products')
+  //     .then(data => (setProd(data)));
+  // };
+
+  const Dog = () => {
+    const [latir, setLatir] = useState('');
+    return (
+      <div>
+        <p>{latir}</p>
+        <button
+          onClick={() => { setLatir(latir+' auau'); }}
+        >
+          {i18n.gettext('Sou cachorrona')}
+        </button>
+      </div>
+    );
   };
   return (
     <div>
@@ -46,11 +60,14 @@ function ProductView(props) {
       </h2>
 
       <ul>
-        {prod ? prod.results.map(({ id, name }) => <li key={id}>{name}</li>) : ''}
+        {prod ? prod.map(({ id, name }) => <li key={id}>{name}</li>) : ''}
       </ul>
-      <button onClick={fetchNewProduct}>Alterar produto</button>
+      {/* <button onClick={fetchNewProduct}>{i18n.gettext('Alterar produto')}</button> */}
+      <Dog />
     </div>
   );
 }
+
+// testar button: apertar e fazer nova requisição
 
 module.exports = injectI18n(ProductView);
