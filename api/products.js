@@ -83,7 +83,7 @@ const ProductService = require('../services/ProductService');
 
 // aula 29/07/2022
 
-router.get('/product', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const data = await ProductService.getProducts(req.platform.siteId, req.query.q, req.query.limit);
     res.status(200).json(data);

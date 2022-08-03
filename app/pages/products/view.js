@@ -22,10 +22,11 @@ function ProductView(props) {
   };
   const [prod, setProd] = useState(products);
 
-  // const fetchNewProduct = () => {
-  //   restclient.get('/products')
-  //     .then(data => (setProd(data)));
-  // };
+  const fetchNewProduct = () => {
+    // aqui chamo a minha API e não a API do Meli
+    restclient.get('/products?q=caneta&limit=10')
+      .then(response => (setProd(response.data)));
+  };
 
   const Dog = () => {
     const [latir, setLatir] = useState('');
@@ -60,9 +61,9 @@ function ProductView(props) {
       </h2>
 
       <ul>
-        {prod ? prod.map(({ id, name }) => <li key={id}>{name}</li>) : ''}
+        {prod ? prod.map(({ id, title }) => <li key={id}>{title}</li>) : ''}
       </ul>
-      {/* <button onClick={fetchNewProduct}>{i18n.gettext('Alterar produto')}</button> */}
+      <button onClick={fetchNewProduct}>{i18n.gettext('Alterar produto')}</button>
       <Dog />
     </div>
   );
