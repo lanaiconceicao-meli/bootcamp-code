@@ -15,7 +15,6 @@ router.use('/demo', demo);
 router.use('/message', message);
 // router.use('/products', products);
 router.use('/currencies', currencies);
-
 /**
  * Expose API router
  */
