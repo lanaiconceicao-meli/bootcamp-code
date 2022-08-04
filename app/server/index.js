@@ -41,7 +41,13 @@ router.get('/', (req, res) => res.redirect(`${config.ragnar.basePath}demo`));
  * Mount routers
  */
 router.use('/demo', demoRoute);
-router.use('/products', productsRoute);
+
+// =================================================
+// Exercício integrador - 4 de agosto
+// modifica /products por /home e coloca query e limit hardcoded no controller
+router.use('/home', productsRoute);
+// =================================================
+
 router.use('/profile', profileRoute);
 router.use('/forms', formRoute);
 
