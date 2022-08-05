@@ -35,11 +35,9 @@ function ProductView(props) {
       </label>
 
       <main>
-        {/* {prod ? prod.map(({ id, title }) => <li key={id}>{title}</li>) : ''} */}
-        {prod ? prod.map(({ title, price, thumbnail }) => (
+        {prod ? prod.map(({ title, price, thumbnail, permalink }) => (
           <>
-            <h2>{title}</h2>
-            <ProductCard nome={title} srcImage={thumbnail} altImage={title} price={price}/>
+            <ProductCard nome={title} srcImage={thumbnail} altImage={title} price={price} permalink={permalink} />
           </>
         ))
           : ''}
