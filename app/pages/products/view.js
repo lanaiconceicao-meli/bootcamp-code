@@ -5,7 +5,7 @@ const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
 const { injectI18n } = require('nordic/i18n');
-const ProductCard = require('../../components/ProductCard');
+const ProductCard = require('../../components/ProductComponent/ProductCard');
 
 function ProductView(props) {
   // eslint-disable-next-line react/prop-types
@@ -37,10 +37,17 @@ function ProductView(props) {
       <main>
         {prod ? prod.map(({ title, price, thumbnail, permalink }) => (
           <>
-            <ProductCard nome={title} srcImage={thumbnail} altImage={title} price={price} permalink={permalink} />
+            <ProductCard
+              nome={title}
+              srcImage={thumbnail}
+              altImage={title}
+              price={price}
+              permalink={permalink}
+              i18n={i18n}
+            />
           </>
         ))
-          : ''}
+          : 'Nenhum produto foi encontrado...'}
       </main>
 
     </>
