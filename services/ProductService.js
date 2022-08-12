@@ -6,8 +6,8 @@ const restclient = require('nordic/restclient')({
 const productsJSON = require('./products');
 
 class ProductService {
-  static getProducts(siteId, product, limit) {
-    return restclient.get(`/sites/${siteId}/search?q=${product}&limit=${limit}`)
+  static getProducts(siteId, product) {
+    return restclient.get(`/sites/${siteId}/search?q=${product}&limit=2`)
       .then(response => response.data.results)
       .catch(() => productsJSON);
   }
