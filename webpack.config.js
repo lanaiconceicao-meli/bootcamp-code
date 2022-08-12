@@ -18,6 +18,7 @@ const path = require('path');
 const entrypoints = {
   demo: './app/client/demo.js',
   products: './app/client/product.js',
+  profile: './app/client/profile.js',
 };
 
 const generateLegacyBundles = entryPoints => Object.keys(entryPoints).reduce((accumulator, entrypointName) => {
@@ -46,7 +47,7 @@ const config = createConfig([
   entryPoint({
     ...entryPointsFamilies.polyfilled,
     ...entryPointsFamilies.nonPolyfilled,
-    ...entryPointsFamilies.nonJsAssets
+    ...entryPointsFamilies.nonJsAssets,
   }),
   customConfig({
     optimization: {
