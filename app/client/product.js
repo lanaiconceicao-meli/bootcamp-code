@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-// require('../pages/products/styles.scss');
+require('../pages/products/styles.scss');
 
 const React = require('react');
 const hydrate = require('nordic/hydrate');

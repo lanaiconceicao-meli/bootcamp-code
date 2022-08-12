@@ -1,0 +1,31 @@
+article {
+  background-color: #fff;
+  text-align: center;
+  width: 500px;
+  margin-left: 33%;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border-radius: 10px;
+  padding: 1px;
+  border: solid 1px rgb(217, 217, 217);
+}
+
+article > h2 {
+  font-size: 20px;
+}
+
+p {
+  font-weight: bold;
+}
+
+p + h2 {
+  font-size: 15px;
+}
+
+.product_img {
+  width: 120px;
+}
+
+main {
+  background-color: rgb(202, 202, 202);
+}
