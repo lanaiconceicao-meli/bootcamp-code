@@ -4,8 +4,7 @@ const Head = require('nordic/head');
 const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
-// const ProfileComponent = require('../../components/ProfileComponent/ProfileComponent');
-const PosicionamentoPseudoclasse = require('../../components/ProfileComponent/PosicionamentoPseudoclasse');
+const Flexbox = require('../../components/ProfileComponent/Flexbox');
 
 function ProfileView(props) {
   const { i18n, translations, imagesPrefix } = props;
@@ -29,8 +28,7 @@ function ProfileView(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="profile.js" />
-      {/* <ProfileComponent i18n={i18n} /> */}
-      <PosicionamentoPseudoclasse i18n={i18n} />
+      <Flexbox i18n={i18n} />
     </>
   );
 }
