@@ -1,12 +1,13 @@
 #container {
   background-color: aqua;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  column-gap: 15px;
   .quadrado {
-    width: 100px;
-    height: 100px;
+    width: 400px;
+    height: 400px;
     color: white;
-    margin: 5px;
     font-size: 25px;
     display: flex;
     align-items: center;
@@ -16,24 +17,30 @@
     flex-grow: 1;
     align-self: flex-start;
     background-color: purple;
-    order: 4;
   }
   .quadrado2 {
     flex-grow: 2;
     align-self: flex-end;
     background-color: rgb(173, 18, 173);
-    order: 3;
   }
   .quadrado3 {
     flex-grow: 3;
     align-self: center;
     background-color: rgb(205, 16, 205);
-    order: 2;
   }
   .quadrado4 {
     flex-grow: 4;
     align-self: baseline;
     background-color: rgb(254, 31, 254);
-    order: 1;
+  }
+  .quadrado5 {
+    flex-grow: 5;
+    align-self: baseline;
+    background-color: rgb(241, 136, 241);
+  }
+  .quadrado6 {
+    flex-grow: 6;
+    align-self: baseline;
+    background-color: rgb(250, 178, 250);
   }
 }

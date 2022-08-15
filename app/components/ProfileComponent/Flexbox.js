@@ -12,6 +12,8 @@ const PosicionamentoPseudoclasse = (props) => {
         <div className="quadrado2 quadrado">{i18n.gettext('2')}</div>
         <div className="quadrado3 quadrado">{i18n.gettext('3')}</div>
         <div className="quadrado4 quadrado">{i18n.gettext('4')}</div>
+        <div className="quadrado5 quadrado">{i18n.gettext('5')}</div>
+        <div className="quadrado6 quadrado">{i18n.gettext('6')}</div>
       </div>
     </>
   );
