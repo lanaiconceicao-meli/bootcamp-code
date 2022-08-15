@@ -44,26 +44,22 @@
 
 // ==========================================================================
 
-// Exercício 1
-// Neste exercício, você criará um componente de navegação usando pseudo-classes
-// para personalizar seu comportamento.
-// Faremos o seguinte:
-// Crie um componente de barra lateral, usando a tag 'nav', contendo pelo menos 4
-// links.
-// Sugerimos que você aplique estilos diferentes para os 3 momentos de uso das
-// opções:
-// ● Quando não há interação.
-// ● Quando o ponteiro do mouse é posicionado sobre.
-// ● Enquanto pressionado.
+// Exercício 2
+// A partir do componente criado no exercício anterior, sugerimos que coloque o menu
+// com os seguintes espaços:
 
-// Para conseguir isso, como dissemos antes, você terá que usar as pseudo-classes
-// vistas na aula.
+// 1) Centralizado verticalmente e à direita.
+// 2) Centralizado horizontalmente e na parte inferior (neste caso, pode ser necessário
+// alterar o alinhamento dos links para que fiquem próximos um do outro).
+// Lembre-se que para modificar a posição do componente você deve definir o atributo
+// 'position' para 'absolute' e então usar as propriedades 'top', 'bottom', 'left' e 'right'
+// para movê-los.
 
 #menu {
   background-color: aqua;
   position: absolute;
-  left: calc(100% - 70px);
-  bottom: calc(60% - 223px);
+  bottom: 0px;
+  left: calc(50% - 150px);
 
   a {
     padding: 5px 10px;
@@ -74,7 +70,6 @@
     text-decoration: none;
     color: white;
     bottom: 0px;
-    display: flex;
 
     &.link1, &.link3 {
       &:hover {
