@@ -19,6 +19,7 @@ const demoRoute = require('../pages/demo');
 const productsRoute = require('../pages/products');
 const profileRoute = require('../pages/profile');
 const formRoute = require('../pages/forms');
+const adaptativeRoute = require('../pages/adaptative');
 
 /**
  * Use global middlewares
@@ -43,6 +44,7 @@ router.use('/demo', demoRoute);
 router.use('/products', productsRoute);
 router.use('/profile', profileRoute);
 router.use('/forms', formRoute);
+router.use('/adaptative', adaptativeRoute);
 
 /**
  * Expose router
