@@ -23,6 +23,7 @@ exports.render = function render(req, res) {
     siteId: req.platform.siteId,
     lowEnd: req.device.lowEnd,
     deviceType: req.device.type,
+    // deviceType: req.device,
     translations: req.translations,
     company: config.get('companyName', req.platform.id, req.platform.siteId),
     imagesPrefix,

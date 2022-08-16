@@ -9,6 +9,7 @@ const { injectI18n } = require('nordic/i18n');
 
 function View(props) {
   const { i18n, translations, site, siteId, lowEnd, deviceType, company, imagesPrefix } = props;
+  console.log(deviceType);
   const preloadedState = {
     i18n,
     translations,
@@ -19,6 +20,13 @@ function View(props) {
     company,
     imagesPrefix,
   };
+
+  const getDeviceType = () => (
+    <div>
+      {deviceType}
+    </div>
+  );
+
   return (
     <div>
       <Head>
@@ -37,7 +45,7 @@ function View(props) {
       <Script src="vendor.js" />
       <Script src="adaptative.js" />
 
-      <p>{i18n.gettext('oi')}</p>
+      <p>{getDeviceType()}</p>
     </div>
   );
 }
