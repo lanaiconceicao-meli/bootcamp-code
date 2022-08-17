@@ -28,18 +28,28 @@ function ProductView(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="products.js" />
-
-      {/* {products.map((product) => (
-        <ProductCard
-          nome={product.title}
-          srcImage={product.thumbnail}
-          altImage={product.title}
-          price={product.price}
-        />
-      ))} */}
-      <ProductCard
+      <section className="principal-content">
+        {products.map((product, index) => (
+          <ProductCard
+            nome={product.title}
+            srcImage={product.thumbnail}
+            altImage={product.title}
+            price={product.price}
+            className={`item-${index}`}
+          />
+        ))}
+      </section>
+      <nav>
+        <a className="link" href="/profile">{i18n.gettext('categoria 1')}</a>
+        <a className="link" href="/profile">{i18n.gettext('categoria 2')}</a>
+        <a className="link" href="/profile">{i18n.gettext('categoria 3')}</a>
+        <a className="link" href="/profile">{i18n.gettext('categoria 4')}</a>
+        <a className="link" href="/profile">{i18n.gettext('categoria 5')}</a>
+        <a className="link" href="/profile">{i18n.gettext('categoria 6')}</a>
+      </nav>
+      {/* <ProductCard
         data={products}
-      />
+      /> */}
     </>
   );
 }
