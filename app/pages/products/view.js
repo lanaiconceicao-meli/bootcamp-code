@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 const React = require('react');
 
 const Script = require('nordic/script');
@@ -6,7 +5,8 @@ const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
 const { injectI18n } = require('nordic/i18n');
 
-const ProductCard = require('../../components/ProductComponent/ProductCard');
+const AddFilter = require('../../components/ProductComponent/AddFilter');
+const FilterList = require('../../components/ProductComponent/FilterList');
 
 function ProductView(props) {
   const { products, i18n, imagesPrefix, translations } = props;
@@ -28,28 +28,8 @@ function ProductView(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="products.js" />
-      <section className="principal-content">
-        {products.map((product, index) => (
-          <ProductCard
-            nome={product.title}
-            srcImage={product.thumbnail}
-            altImage={product.title}
-            price={product.price}
-            className={`item-${index}`}
-          />
-        ))}
-      </section>
-      <nav>
-        <a className="link" href="/profile">{i18n.gettext('categoria 1')}</a>
-        <a className="link" href="/profile">{i18n.gettext('categoria 2')}</a>
-        <a className="link" href="/profile">{i18n.gettext('categoria 3')}</a>
-        <a className="link" href="/profile">{i18n.gettext('categoria 4')}</a>
-        <a className="link" href="/profile">{i18n.gettext('categoria 5')}</a>
-        <a className="link" href="/profile">{i18n.gettext('categoria 6')}</a>
-      </nav>
-      {/* <ProductCard
-        data={products}
-      /> */}
+      <AddFilter i18n={i18n} products={products} />
+      <FilterList i18n={i18n} />
     </>
   );
 }

@@ -7,7 +7,7 @@ const ProductService = require('../../../services/ProductService');
 const View = require('./view');
 
 exports.fetchProduct = function fetchProduct(req, res, next) {
-  ProductService.getProducts(req.platform.siteId, req.query.q = 'cafe', req.query.limit = '3')
+  ProductService.getProducts(req.platform.siteId, req.query.q = 'cafe', req.query.limit = '20')
     .then((data) => {
       res.locals.products = data;
       next();
