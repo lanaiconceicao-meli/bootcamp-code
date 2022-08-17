@@ -5,12 +5,12 @@ const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
 const { injectI18n } = require('nordic/i18n');
-// const Image = require('nordic/image');
+const ProductCard = require('../../components/ProductComponent/ProductCard');
 
 function View(props) {
-  const { i18n, translations, site, siteId, lowEnd, deviceType, company, imagesPrefix } = props;
-  console.log(deviceType);
+  const { products, i18n, translations, site, siteId, lowEnd, deviceType, company, imagesPrefix } = props;
   const preloadedState = {
+    products,
     i18n,
     translations,
     site,
@@ -23,7 +23,7 @@ function View(props) {
 
   const getDeviceType = () => (
     <div>
-      {deviceType}
+      {deviceType.type}
     </div>
   );
 
@@ -45,7 +45,11 @@ function View(props) {
       <Script src="vendor.js" />
       <Script src="adaptative.js" />
 
-      <p>{getDeviceType()}</p>
+      <p>{i18n.gettext('Device type:')}<span>{getDeviceType()}</span></p>
+      <ProductCard
+        data={products}
+        size={getDeviceType()}
+      />
     </div>
   );
 }

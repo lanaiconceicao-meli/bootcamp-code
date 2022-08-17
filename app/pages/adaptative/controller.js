@@ -3,8 +3,16 @@ const config = require('nordic/config');
 const I18nProvider = require('nordic/i18n/I18nProvider');
 const ImageProvider = require('nordic/image/provider');
 const View = require('./view');
+const ProductService = require('../../../services/ProductService');
 
-// const { basePath } = config.ragnar;
+exports.fetchProduct = function fetchProduct(req, res, next) {
+  ProductService.getProducts(req.platform.siteId, req.query.q = 'cafe', req.query.limit = '10')
+    .then((data) => {
+      res.locals.products = data;
+      next();
+    })
+    .catch(err => next(err));
+};
 
 exports.render = function render(req, res) {
   const imagesPrefix = config.assets.prefix;
@@ -18,12 +26,11 @@ exports.render = function render(req, res) {
   );
 
   res.render(Adaptative, {
-    // baseURL: `${basePath}demo`,
+    products: res.locals.products,
     site: res.locals.site,
     siteId: req.platform.siteId,
     lowEnd: req.device.lowEnd,
-    deviceType: req.device.type,
-    // deviceType: req.device,
+    deviceType: req.device,
     translations: req.translations,
     company: config.get('companyName', req.platform.id, req.platform.siteId),
     imagesPrefix,

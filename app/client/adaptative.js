@@ -8,6 +8,7 @@ const ImageProvider = require('nordic/image/provider');
 const AdaptativeView = require('../pages/adaptative/view');
 
 const {
+  products,
   site,
   siteId,
   lowEnd,
@@ -23,6 +24,7 @@ hydrate(
   <I18nProvider i18n={i18n}>
     <ImageProvider prefix={imagesPrefix}>
       <AdaptativeView
+        products={products}
         site={site}
         siteId={siteId}
         lowEnd={lowEnd}

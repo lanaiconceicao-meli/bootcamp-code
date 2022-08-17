@@ -29,14 +29,17 @@ function ProductView(props) {
       <Script src="vendor.js" />
       <Script src="products.js" />
 
-      {products.map((product) => (
+      {/* {products.map((product) => (
         <ProductCard
           nome={product.title}
           srcImage={product.thumbnail}
           altImage={product.title}
           price={product.price}
         />
-      ))}
+      ))} */}
+      <ProductCard
+        data={products}
+      />
     </>
   );
 }
