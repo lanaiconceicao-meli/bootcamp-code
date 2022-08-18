@@ -17,7 +17,8 @@ function ProductView(props) {
     imagesPrefix,
     translations,
   };
-  const [addFilterList, setAddFilterList] = useState([]);
+  const [addFilterPriceList, setAddFilterPriceList] = useState([]);
+  const [addFilterCategoryList, setAddFilterCategoryList] = useState([]);
 
   return (
     <>
@@ -32,16 +33,23 @@ function ProductView(props) {
       <Script src="products.js" />
       <AddFilter
         i18n={i18n}
-        addFilterList={addFilterList}
-        setAddFilterList={setAddFilterList}
+        setAddFilterPriceList={setAddFilterPriceList}
+        setAddFilterCategoryList={setAddFilterCategoryList}
       />
       <FilterList i18n={i18n} />
       {
-        addFilterList.length > 0
-          ? addFilterList.map((filter) => (
+        addFilterPriceList.length > 0
+          ? addFilterPriceList.map((filter) => (
             <p>{`Preço mínimo: ${filter.priceRangeMin} e preço máximo: ${filter.priceRangeMax}`}</p>
           ))
-          : <p>{i18n.gettext('Nenhum filtro criado')}</p>
+          : <p>{i18n.gettext('Nenhum filtro de preço criado')}</p>
+      }
+      {
+        addFilterCategoryList.length > 0
+          ? addFilterCategoryList.map((filter) => (
+            <p>{`Categorias: ${filter.category}`}</p>
+          ))
+          : <p>{i18n.gettext('Nenhum filtro de categoria criado')}</p>
       }
     </>
   );

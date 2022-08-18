@@ -4,13 +4,17 @@ const { useState } = React;
 
 // const Image = require('nordic/image');
 
-const AddFilter = ({ i18n, addFilterList, setAddFilterList }) => {
+const AddFilter = ({ i18n, setAddFilterPriceList, setAddFilterCategoryList }) => {
   const [rangePrice, setRangePrice] = useState({
     priceRangeMin: 0,
     priceRangeMax: 0,
   });
 
-  // ========= LÓGICA PARA FILTRAR ============
+  const [categoryFilter, setCategoryFilter] = useState({
+    category: '',
+  });
+
+  // ========= LÓGICA PARA FILTRAR NA API ============
   // const [filteredPrice, setFilteredPrice] = useState([]);
   // ==========================================
 
@@ -19,11 +23,20 @@ const AddFilter = ({ i18n, addFilterList, setAddFilterList }) => {
     setRangePrice({ ...rangePrice, [name]: value });
   };
 
-  const handleClickRangeprice = () => {
-    setAddFilterList((prevState) => [...prevState, rangePrice]);
+  const handleChangeCategory = (e) => {
+    const { name, value } = e.target;
+    setCategoryFilter({ ...categoryFilter, [name]: value });
   };
 
-  // ========= LÓGICA PARA FILTRAR ============
+  const handleClickRangeprice = () => {
+    setAddFilterPriceList((prevState) => [...prevState, rangePrice]);
+  };
+
+  const handleClickCategory = () => {
+    setAddFilterCategoryList((prevState) => [...prevState, categoryFilter]);
+  };
+
+  // ========= LÓGICA PARA FILTRAR NA API ============
   // const handlePrice = () => {
   //   // e.preventDefault();
   //   // const filtered = products.filter((product) => (
@@ -62,12 +75,19 @@ const AddFilter = ({ i18n, addFilterList, setAddFilterList }) => {
         <br />
         <label htmlFor="category-filter">
           {i18n.gettext('Filtro por categoria: ')}
-          <input type="text" id="category-filter" placeholder="Digite aqui..." />
+          <input
+            type="text"
+            id="category-filter"
+            placeholder="Digite aqui..."
+            name="category"
+            value={categoryFilter.category}
+            onChange={handleChangeCategory}
+          />
         </label>
-        <button type="button">{i18n.gettext('Adicionar filtro por categoria')}</button>
+        <button type="button" onClick={handleClickCategory}>{i18n.gettext('Adicionar filtro por categoria')}</button>
       </form>
       {/* {
-        // ========= LÓGICA PARA FILTRAR ============
+        // ========= LÓGICA PARA FILTRAR NA API ============
         filteredPrice && filteredPrice.map((productArray) => productArray.map((product) => (
           <>
             <p>{product.title}</p>
