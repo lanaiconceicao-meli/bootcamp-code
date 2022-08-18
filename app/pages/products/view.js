@@ -19,6 +19,26 @@ function ProductView(props) {
   };
   const [addFilterPriceList, setAddFilterPriceList] = useState([]);
   const [addFilterCategoryList, setAddFilterCategoryList] = useState([]);
+  const [addFilterFeedback, setAddFilterFeedback] = useState([]);
+
+  const [feedback, setFeedback] = useState({
+    name: '',
+    content: '',
+  });
+
+  const handleFeedbackSubmit = (e) => {
+    e.preventDefault();
+    setAddFilterFeedback((prevState) => [...prevState, feedback]);
+    setFeedback({
+      name: '',
+      content: '',
+    });
+  };
+
+  const handleChangeFeedback = (e) => {
+    const { name, value } = e.target;
+    setFeedback({ ...feedback, [name]: value });
+  };
 
   return (
     <>
@@ -43,6 +63,46 @@ function ProductView(props) {
         addFilterCategoryList={addFilterCategoryList}
         setAddFilterCategoryList={setAddFilterCategoryList}
       />
+      <form onSubmit={handleFeedbackSubmit}>
+        <h3>{i18n.gettext('Feedback: ')}</h3>
+        <label htmlFor="name">
+          <input
+            value={feedback.name}
+            id="name"
+            placeholder="Digite aqui seu nome..."
+            type="text"
+            onChange={handleChangeFeedback}
+            name="name"
+          />
+        </label>
+        <br />
+        <label htmlFor="feedback">
+          <textarea
+            value={feedback.content}
+            id="feedback"
+            placeholder="Digite aqui feedback..."
+            name="content"
+            rows="5"
+            cols="33"
+            onChange={handleChangeFeedback}
+          />
+        </label>
+        <label htmlFor="sendBtn">
+          <input id="sendBtn" type="submit" />
+        </label>
+      </form>
+      <p>{i18n.gettext('Feedback inserido: ')}</p>
+      {
+          addFilterFeedback.length > 0
+            ? addFilterFeedback.map((filter) => (
+              <>
+                <p>{`Nome: ${filter.name}`}</p>
+                <p>{`Feedback: ${filter.content}`}</p>
+                <p>{i18n.gettext('==================')}</p>
+              </>
+            ))
+            : <p>{i18n.gettext('Nenhum filtro de categoria criado')}</p>
+        }
     </>
   );
 }
