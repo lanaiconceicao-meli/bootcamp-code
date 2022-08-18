@@ -36,21 +36,13 @@ function ProductView(props) {
         setAddFilterPriceList={setAddFilterPriceList}
         setAddFilterCategoryList={setAddFilterCategoryList}
       />
-      <FilterList i18n={i18n} />
-      {
-        addFilterPriceList.length > 0
-          ? addFilterPriceList.map((filter) => (
-            <p>{`Preço mínimo: ${filter.priceRangeMin} e preço máximo: ${filter.priceRangeMax}`}</p>
-          ))
-          : <p>{i18n.gettext('Nenhum filtro de preço criado')}</p>
-      }
-      {
-        addFilterCategoryList.length > 0
-          ? addFilterCategoryList.map((filter) => (
-            <p>{`Categorias: ${filter.category}`}</p>
-          ))
-          : <p>{i18n.gettext('Nenhum filtro de categoria criado')}</p>
-      }
+      <FilterList
+        i18n={i18n}
+        addFilterPriceList={addFilterPriceList}
+        setAddFilterPriceList={setAddFilterPriceList}
+        addFilterCategoryList={addFilterCategoryList}
+        setAddFilterCategoryList={setAddFilterCategoryList}
+      />
     </>
   );
 }

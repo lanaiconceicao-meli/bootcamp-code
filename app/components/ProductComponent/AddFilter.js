@@ -18,7 +18,7 @@ const AddFilter = ({ i18n, setAddFilterPriceList, setAddFilterCategoryList }) =>
   // const [filteredPrice, setFilteredPrice] = useState([]);
   // ==========================================
 
-  const handleChange = (e) => {
+  const handleChangeRangePrice = (e) => {
     const { name, value } = e.target;
     setRangePrice({ ...rangePrice, [name]: value });
   };
@@ -30,10 +30,17 @@ const AddFilter = ({ i18n, setAddFilterPriceList, setAddFilterCategoryList }) =>
 
   const handleClickRangeprice = () => {
     setAddFilterPriceList((prevState) => [...prevState, rangePrice]);
+    setRangePrice({
+      priceRangeMin: 0,
+      priceRangeMax: 0,
+    });
   };
 
   const handleClickCategory = () => {
     setAddFilterCategoryList((prevState) => [...prevState, categoryFilter]);
+    setCategoryFilter({
+      category: '',
+    });
   };
 
   // ========= LÓGICA PARA FILTRAR NA API ============
@@ -56,7 +63,7 @@ const AddFilter = ({ i18n, setAddFilterPriceList, setAddFilterCategoryList }) =>
             placeholder="150"
             name="priceRangeMin"
             value={rangePrice.priceRangeMin}
-            onChange={handleChange}
+            onChange={handleChangeRangePrice}
           />
         </label>
         <label htmlFor="price-range-max">
@@ -66,7 +73,7 @@ const AddFilter = ({ i18n, setAddFilterPriceList, setAddFilterCategoryList }) =>
             placeholder="5000"
             name="priceRangeMax"
             value={rangePrice.priceRangeMax}
-            onChange={handleChange}
+            onChange={handleChangeRangePrice}
           />
         </label>
         <button type="button" onClick={handleClickRangeprice}>
