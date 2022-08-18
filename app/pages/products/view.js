@@ -1,5 +1,6 @@
 const React = require('react');
 
+const { useState } = React;
 const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
@@ -16,6 +17,7 @@ function ProductView(props) {
     imagesPrefix,
     translations,
   };
+  const [addFilterList, setAddFilterList] = useState([]);
 
   return (
     <>
@@ -28,8 +30,19 @@ function ProductView(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="products.js" />
-      <AddFilter i18n={i18n} products={products} />
+      <AddFilter
+        i18n={i18n}
+        addFilterList={addFilterList}
+        setAddFilterList={setAddFilterList}
+      />
       <FilterList i18n={i18n} />
+      {
+        addFilterList.length > 0
+          ? addFilterList.map((filter) => (
+            <p>{`Preço mínimo: ${filter.priceRangeMin} e preço máximo: ${filter.priceRangeMax}`}</p>
+          ))
+          : <p>{i18n.gettext('Nenhum filtro criado')}</p>
+      }
     </>
   );
 }
