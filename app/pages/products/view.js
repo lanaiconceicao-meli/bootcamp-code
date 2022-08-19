@@ -16,26 +16,45 @@ const ShoppingCart = require('../../components/ProductComponent/ShoppingCart');
 
 
 function ProductView(props) {
-  const { products, i18n, imagesPrefix, translations } = props;
+  const { products, i18n, imagesPrefix, translations, limit, offset, q } = props;
   const preloadedState = {
     products,
     i18n,
     imagesPrefix,
     translations,
+    limit,
+    offset,
+    q,
   };
 
   const [data, setData] = useState([]);
-  const [productList, setProductList] = useState([]);
+  const [offsetQuery, setOffsetQuery] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const fetchProducts = async () => {
-    const apiResponse = await restclient.get('/products?q=chinelo&limit=5');
-    setData((prevState) => [...prevState, ...apiResponse.data]);
+    const apiResponse = await restclient.get(`/products?q=${q}&limit=${limit}&offset=${offsetQuery}`);
+    setData(apiResponse.data);
+    if (offsetQuery > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
   };
 
+  const nextPage = () => {
+    setOffsetQuery((prevState) => Number(prevState) + 2);
+    setIsDisabled(false);
+  };
+
+  const previousPage = () => {
+    if (offsetQuery > 0) {
+      setOffsetQuery(Number(offsetQuery) - 2);
+    }
+  };
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [offsetQuery]);
 
   return (
     <>
@@ -56,19 +75,14 @@ function ProductView(props) {
           i18n={i18n}
         />))
       }
-      <ShoppingCart product={data} />
+      <button type="button" onClick={previousPage} disabled={isDisabled}>
+        {i18n.gettext('Anterior')}
+      </button>
+      <button type="button" onClick={nextPage}>
+        {i18n.gettext('Próxima')}
+      </button>
     </>
   );
 }
-
-ProductView.propTypes = {
-  i18n: PropTypes.shape({
-    gettext: PropTypes.func.isRequired,
-  }).isRequired,
-  translations: PropTypes.shape({}),
-  imagesPrefix: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
 
 module.exports = injectI18n(ProductView);

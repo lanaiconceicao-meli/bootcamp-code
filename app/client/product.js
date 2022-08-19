@@ -11,6 +11,9 @@ const {
   products,
   translations,
   imagesPrefix,
+  limit,
+  offset,
+  q,
 } = window.__PRELOADED_STATE__;
 
 const i18n = new I18n({ translations });
@@ -18,7 +21,7 @@ const i18n = new I18n({ translations });
 hydrate(
   <I18nProvider i18n={i18n}>
     <ImageProvider prefix={imagesPrefix}>
-      <ProductView products={products} />
+      <ProductView products={products} limit={limit} offset={offset} q={q} />
     </ImageProvider>
   </I18nProvider>,
   document.getElementById('root-app'),
