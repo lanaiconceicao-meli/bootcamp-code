@@ -1,0 +1,25 @@
+// Base
+@import '~@andes/form/base';
+@import '~@andes/textfield/base';
+@import '~@andes/form/base';
+@import '~@andes/dropdown/base';
+@import '~@andes/amount-field/base';
+@import '~@andes/button/base';
+@import '~@andes/modal/base';
+
+@import '~@andes/dropdown/lib/styles/multiple';
+@import '~@andes/amount-field/lib/styles/size/large';
+@import '~@andes/button/lib/styles/modifier/loud';
+@import '~@andes/radio-list/index';
+@import '~@andes/modal/lib/styles/large/index';
+
+#forms {
+  display: flex;
+  justify-content: center;
+
+  .btnSendProduct {
+    display: flex;
+    justify-content: center;
+    margin: 30px;  
+  }
+}

@@ -20,6 +20,7 @@ const entrypoints = {
   products: './app/client/product.js',
   profile: './app/client/profile.js',
   adaptative: './app/client/adaptative.js',
+  forms: './app/client/forms.js',
 };
 
 const generateLegacyBundles = entryPoints => Object.keys(entryPoints).reduce((accumulator, entrypointName) => {

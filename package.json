@@ -25,6 +25,14 @@
     "i18n:download": "i18n download"
   },
   "dependencies": {
+    "@andes/amount-field": "7.19.1",
+    "@andes/button": "7.19.1",
+    "@andes/dropdown": "7.19.1",
+    "@andes/form": "7.19.1",
+    "@andes/list": "7.19.1",
+    "@andes/modal": "7.20.0",
+    "@andes/radio-list": "7.20.0",
+    "@andes/textfield": "7.19.1",
     "nordic": "^7.12.1"
   },
   "devDependencies": {
