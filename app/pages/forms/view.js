@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 const React = require('react');
 
 const { useState } = React;
@@ -33,7 +34,7 @@ function View(props) {
     description: '',
     country: '',
     category: '',
-    price: '',
+    price: '0,00',
     brand: '',
     thumbnail: '',
     shipping: '',
@@ -86,8 +87,6 @@ function View(props) {
     setIsOpen(false);
   };
 
-  // parei aqui nessa função que roda ao apertar "Enviar" do modal
-  // ainda preciso mostrar essas coisas na tela (linha 210)
   const handleClickModal = () => {
     setProd([...prod, objProduct]);
     setObjProduct({
@@ -95,7 +94,7 @@ function View(props) {
       description: '',
       country: '',
       category: '',
-      price: '',
+      price: '0,00',
       brand: '',
       thumbnail: '',
       shipping: '',
@@ -122,6 +121,9 @@ function View(props) {
           value={objProduct.name}
           id="name"
           onChange={handleInput}
+          messageShow={objProduct.name.length < 2}
+          message="* Preenchimento obrigatório"
+          required
         />
         <TextField
           label="Descrição do produto"
@@ -130,19 +132,21 @@ function View(props) {
           value={objProduct.description}
           id="description"
           onChange={handleInput}
+          messageShow={objProduct.description.length < 2}
+          message="* Preenchimento obrigatório"
         />
         <Dropdown
           type="form"
           label="País"
-          placeholder="Selecciona tu país de residencia"
-          defaultValue="argentina"
+          placeholder="Selecione o país"
           id="country"
           onChange={handleCountry}
+          value={objProduct.country}
         >
-          <DropdownItem value="argentina" primary="Argentina" key="argentina" name="argentina" />
-          <DropdownItem value="brazil" primary="Brazil" key="brazil" />
-          <DropdownItem value="uruguay" primary="Uruguay" key="uruguay" />
-          <DropdownItem value="chile" primary="Chile" key="chile" />
+          <DropdownItem value="Argentina" primary="Argentina" key="country" name="argentina" />
+          <DropdownItem value="Brazil" primary="Brazil" key="country" />
+          <DropdownItem value="Uruguay" primary="Uruguay" key="country" />
+          <DropdownItem value="Chile" primary="Chile" key="country" />
         </Dropdown>
         <Dropdown
           type="form"
@@ -150,12 +154,13 @@ function View(props) {
           placeholder="Selecione a categoria do produto"
           defaultValue="categoria1"
           onChange={handleCategory}
+          value={objProduct.category}
         >
-          <DropdownItem value="categoria1" primary="Categoria 1" key="categoria1" />
-          <DropdownItem value="categoria2" primary="Categoria 2" key="categoria2" />
-          <DropdownItem value="categoria3" primary="Categoria 3" key="categoria3" />
-          <DropdownItem value="categoria4" primary="Categoria 4" key="categoria4" />
-          <DropdownItem value="categoria5" primary="Categoria 5" key="categoria5" />
+          <DropdownItem value="categoria1" primary="Categoria 1" key="category" />
+          <DropdownItem value="categoria2" primary="Categoria 2" key="category" />
+          <DropdownItem value="categoria3" primary="Categoria 3" key="category" />
+          <DropdownItem value="categoria4" primary="Categoria 4" key="category" />
+          <DropdownItem value="categoria5" primary="Categoria 5" key="category" />
         </Dropdown>
         <AmountField
           id="amount-field"
@@ -166,10 +171,31 @@ function View(props) {
           onChange={handlePrice}
           value={objProduct.price}
         />
-        <TextField label="Marca" width={150} maxLength={300} onChange={handleInput} id="brand" />
-        <TextField label="Thumbnail" width={150} maxLength={300} onChange={handleInput} id="thumbnail" />
+        <TextField
+          label="Marca"
+          width={150}
+          maxLength={300}
+          onChange={handleInput}
+          id="brand"
+          messageShow={objProduct.brand.length < 2}
+          message="* Preenchimento obrigatório"
+          required
+          value={objProduct.brand}
+        />
+        <TextField
+          label="Thumbnail"
+          width={150}
+          maxLength={300}
+          onChange={handleInput}
+          id="thumbnail"
+          messageShow={objProduct.thumbnail.length < 2}
+          message="* Preenchimento obrigatório"
+          required
+          value={objProduct.thumbnail}
+        />
         <div className="checkbox">
-          <RadioList id="shipping" onClick={handleShipping}>
+          <p>{i18n.gettext('Escolha a forma de envio:')}</p>
+          <RadioList id="shipping" onClick={handleShipping} value={objProduct.shipping}>
             <ListItem
               primary="Retirada na loja"
               value="Retirada na loja"
@@ -185,33 +211,67 @@ function View(props) {
           </RadioList>
         </div>
         <div className="btnSendProduct">
-          <Button hierarchy="loud" size="large" onClick={handleClick}>
+          <Button
+            hierarchy="loud"
+            size="large"
+            onClick={handleClick}
+            disabled={
+              objProduct.name.length < 2
+              || objProduct.description.length < 2
+              || objProduct.country === ''
+              || objProduct.category === ''
+              || objProduct.price === 0
+              || objProduct.brand.length < 2
+              || objProduct.thumbnail.length < 2
+              || objProduct.shipping === ''
+            }
+          >
             {i18n.gettext('Cadastrar')}
           </Button>
-          <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            title="Produto cadastrado com sucesso!"
-            type="large"
-            actions={{
-              fixed: false,
-              primary: <Button onClick={handleClickModal}>{i18n.gettext('Enviar')}</Button>,
-            }}
-          >
-            <h2>{objProduct.name}</h2>
-            <p>{objProduct.description}</p>
-            <p>{objProduct.country}</p>
-            <p>{objProduct.category}</p>
-            <p>{i18n.gettext(`R$ ${objProduct.price}`)}</p>
-            <p>{objProduct.brand}</p>
-            <Image src={objProduct.thumbnail} alt={objProduct.name} lazyload="off" />
-            <p>{objProduct.shipping}</p>
-          </Modal>
-          {prod && prod.map((item) => console.log(item))}
         </div>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          title="Deseja cadastrar realmente esse produto?"
+          type="large"
+          actions={{
+            fixed: false,
+            primary: <Button onClick={handleClickModal}>{i18n.gettext('Cadastrar')}</Button>,
+          }}
+          closeButtonLabel="Close demo modal"
+        >
+          <h2>{objProduct.name}</h2>
+          <p>{objProduct.description}</p>
+          <p>{objProduct.country}</p>
+          <p>{objProduct.category}</p>
+          <p>{i18n.gettext(`R$ ${objProduct.price}`)}</p>
+          <p>{objProduct.brand}</p>
+          <Image src={objProduct.thumbnail} alt={objProduct.name} lazyload="off" />
+          <p>{objProduct.shipping}</p>
+        </Modal>
+        {prod && prod.map((item) => (
+          <div className="registeredProduct">
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
+            <p>{item.country}</p>
+            <p>{item.category}</p>
+            <p>{i18n.gettext(`R$ ${item.price}`)}</p>
+            <p>{item.brand}</p>
+            <Image src={item.thumbnail} alt={item.name} lazyload="off" />
+            <p>{item.shipping}</p>
+          </div>
+        ))}
       </Form>
     </div>
   );
 }
+
+View.propTypes = {
+  i18n: PropTypes.shape({
+    gettext: PropTypes.func,
+  }),
+  imagesPrefix: PropTypes.string,
+  translations: PropTypes.shape({}),
+};
 
 module.exports = injectI18n(View);

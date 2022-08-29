@@ -22,4 +22,25 @@
     justify-content: center;
     margin: 30px;  
   }
+
+  .checkbox {
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .registeredProduct {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    outline: 2px solid black;
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  img {
+    width: 120px;
+  }
 }
