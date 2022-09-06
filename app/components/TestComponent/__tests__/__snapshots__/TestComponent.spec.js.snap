@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test TestComponent snapshot 1`] = `
+<DocumentFragment>
+  <h1>
+    não ex
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`snapshot test TestComponent with array snapshot 1`] = `
+<DocumentFragment>
+  <h4>
+    agua
+  </h4>
+  <h4>
+    terra
+  </h4>
+  <h4>
+    ar
+  </h4>
+  <h4>
+    fogo
+  </h4>
+</DocumentFragment>
+`;

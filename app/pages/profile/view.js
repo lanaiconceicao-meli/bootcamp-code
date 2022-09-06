@@ -4,7 +4,7 @@ const Head = require('nordic/head');
 const Script = require('nordic/script');
 const Style = require('nordic/style');
 const serialize = require('serialize-javascript');
-const Flexbox = require('../../components/ProfileComponent/Flexbox');
+const TestComponent = require('../../components/TestComponent/TestComponent');
 
 function ProfileView(props) {
   const { i18n, translations, imagesPrefix } = props;
@@ -15,7 +15,7 @@ function ProfileView(props) {
     <>
       <Head>
         <title>
-          {i18n.gettext('Demo Page')}
+          {i18n.gettext('Profile Page')}
         </title>
       </Head>
 
@@ -28,7 +28,7 @@ function ProfileView(props) {
       </Script>
       <Script src="vendor.js" />
       <Script src="profile.js" />
-      <Flexbox i18n={i18n} />
+      <TestComponent isArray={['agua', 'terra', 'ar', 'fogo']} i18n={i18n} />
     </>
   );
 }
