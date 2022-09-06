@@ -5,6 +5,22 @@
 const { ToUpperCase, Soma, AddToArray } = require('../../app/helpers/functions');
 
 describe('Testing functions: "ToUpperCase", "Soma" and "AddToArray"', () => {
+  beforeAll(() => {
+    console.log('I am beforeAll, and I run before all tests');
+  });
+
+  beforeEach(() => {
+    console.log('I am beforeEach, and I run before each test');
+  });
+
+  afterAll(() => {
+    console.log('I am afterAll, and I run after all tests');
+  });
+
+  afterEach(() => {
+    console.log('I am afterEach, and I run after each test');
+  });
+
   // =============== ToUpperCase ===============
 
   test('if function "ToUpperCase" is defined', () => {
