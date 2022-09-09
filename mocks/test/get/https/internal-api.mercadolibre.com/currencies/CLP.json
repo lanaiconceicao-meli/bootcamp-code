@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "date": "Fri, 09 Sep 2022 18:52:58 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "73",
+    "connection": "keep-alive",
+    "cache-control": "max-age=3600,stale-while-revalidate=1800, stale-if-error=7200",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "383ccedb-9dc3-4dbd-abf8-2311a00deb37",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-07763552e04e3e00f-10.54.28.221",
+    "x-nginx-pool": "read.sites-api.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": {
+    "id": "CLP",
+    "symbol": "$",
+    "description": "Peso Chileno",
+    "decimal_places": 0
+  }
+}

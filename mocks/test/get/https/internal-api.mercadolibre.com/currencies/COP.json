@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "date": "Fri, 09 Sep 2022 18:33:48 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "76",
+    "connection": "keep-alive",
+    "cache-control": "max-age=3600,stale-while-revalidate=1800, stale-if-error=7200",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "a9daa60f-a313-43ef-8319-075c65a6bd3d",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-020d1faab34ca023d-10.54.28.169",
+    "x-nginx-pool": "read.sites-api.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": {
+    "id": "COP",
+    "symbol": "$",
+    "description": "Peso colombiano",
+    "decimal_places": 0
+  }
+}

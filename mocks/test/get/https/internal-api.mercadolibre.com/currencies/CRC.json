@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "date": "Fri, 09 Sep 2022 18:42:45 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "70",
+    "connection": "keep-alive",
+    "cache-control": "max-age=3600,stale-while-revalidate=1800, stale-if-error=7200",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "bcd28a77-b2c2-4434-b6f9-45b49099c9a4",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-0de3b3d40225d699f-10.54.28.182",
+    "x-nginx-pool": "read.sites-api.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": {
+    "id": "CRC",
+    "symbol": "₡",
+    "description": "Colones",
+    "decimal_places": 2
+  }
+}

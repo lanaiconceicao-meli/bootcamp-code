@@ -1,0 +1,25 @@
+{
+  "status": 404,
+  "statusText": "Not Found",
+  "headers": {
+    "date": "Fri, 09 Sep 2022 18:46:07 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "89",
+    "connection": "keep-alive",
+    "cache-control": "max-age=180,stale-while-revalidate=90, stale-if-error=360",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "a3e985b3-7a07-413e-bd67-c7a5c3adcb3d",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-07763552e04e3e00f-10.54.28.221",
+    "x-nginx-pool": "read.sites-api.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": {
+    "message": "Currency with id USS not found.",
+    "error": "not_found",
+    "status": 404,
+    "cause": []
+  }
+}
